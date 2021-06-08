@@ -1,0 +1,1 @@
+{{ 'Esto es un ejemplo de string en blade' }}
