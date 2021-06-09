@@ -19,8 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Para registrar multiples controladores api
-Route::apiResources([
-    'books' => BookController::class,
-    //'posts' => PostController::class,
-]);
+
+
+Route::group(['middleware' => 'auth:api'], function () {
+    // Para registrar multiples controladores api
+    Route::apiResources([
+        'books' => BookController::class,
+        //'posts' => PostController::class,
+    ]);
+});
